@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="google-font-effects" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon">
+<link rel="google-icons" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<title>My HTML Studies</title>
+<link rel="icon" type="image/x-icon" href="faviconeu.ico">
+  <meta charset="UTF-8">
+  <meta name="description" content="João HTML Studies">
+  <meta name="keywords" content="HTML, CSS, JavaScript">
+  <meta name="author" content="João Medeiros">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="https://www.w3schools.com/" target="_blank">
+<style>
+q:lang(no) {
+  quotes: "~" "~";
+}
+
+* {
+  box-sizing: border-box; /* this will turn all box-sizing into the command border-box. This will make sure that padding and margin are included in the total width or height */
+}
+
+body {
+  background-color:rgba(0, 128, 0, 0.3);
+  /*opacity: 0.8; how much transparent the color is*/
+  background-image: url('test-insert-an-image-link-here');
+  background-repeat: no-repeat;  /*background-repeat: repeat-x; to repeat horizontally or y vertically*/
+  /* background-position: right top;*/
+  background-attachment: fixed; /*or scroll, if you want the image to scroll with the page*/
+  background-size: cover; 
+}
+h1, h2, h3 {
+    color:purple;
+    font-family: verdana;
+    font-size: 150%;
+    font-weight: bold; /*to make the words bold, should use font-weight*/
+    border-style: solid;
+    /*border : 4px dotted red ; we can use a shorthand version like that, everything on the same line*/ 
+    /*border-top-style: dotted; this is another option*/
+    border-width: 5px;/*we can use between 1 to 4 values here, to change in order the border from above, right, below and left*/
+    border-color: pink;
+    border-radius: 10px; /*to create curves on the border*/
+}
+/*div {  only creatin this for an example 
+   overflow: auto; it means that it will create a scrollbar when necessary when the text it's to high for it's borders 
+   overflow-x: hidden;  Hide horizontal scrollbar 
+   overflow-y: scroll;  Add vertical scrollbar 
+   width: 50px;
+   height: 50px; 
+}*/
+div p {
+  background-color: transparent; /* it makes every p descendent inside teh div becomes XXX*/
+}
+div > p {
+  background-color: transparent; /* it will make all the child elements become green -- child it's NOT what is below, but what is in the same div division*/
+}
+div + p {
+  background-color: transparent; /* it will make all the adjcent elemtns become red. -- adjacent elementes are the one's we use TAB (those below)*/
+}
+div ~ p {
+ background-color: transparent; /* it selects everything after the div element */ 
+}
+p {
+    color:black; /* !important; - (it should be placed after the value chosen) this would overide all the other commands that include <p>, even the id and classes */
+    outline: 1px groove;
+    /*out-line-offset: 15px; we can use it to add distance between outline and border*/
+    padding: 4px;
+    margin: 20px;
+    /*margin: auto; we can use auto to make everything goes to the center or be more align according to the margin*/
+    text-align: justified;
+    text-decoration: underlined;
+    text-decoration-thickness: 5px;
+    text-indent: 25px; /*creates some space, like a tab, in the line*/
+    font-family: Arial, Verdana, sans-serif;
+    font-style: italic; /* We can use italic, oblique, etc. */
+    font-variant: normal; /* but we can use small-caps, etc. */
+    /*text-shadow: 2px 2px --- shadow on letters*/
+    /*white-space: nowrap; --- it can take it all the white spaces */
+    /*letter-spacing: 5px --- space between letters*/
+    /*text-transform: uppercase --- to make all text in caps. We can also use: lowercase, capitalized, etc.*/
+}
+p::first-letter {
+  color: #ff0000;
+  font-size: xx-large;
+}
+/* p:first-child { ---- after the : we have a pseudo-class. This will make all the firs-child elements become blue. By this I mean all the elements structures that starts with a P
+  color: blue;
+} 
+p i:first-child { ---- This, by the other hand, makes all the FIRST I after the P becomes blue.
+  color: blue;
+} 
+p:first-child i { ---- Here it matches all the I elements inside the p:first-child elements
+  color: blue;
+} 
+p::first-line { ------ This is a pseudo-element, where we can use it modify parts of an element.
+  color: #ff0000;
+  font-variant: small-caps;
+} 
+p.intro::first-letter { ---- Pseudo-elements and HTML classes can be combined.
+  color: #ff0000;
+  font-size: 200%;
+}
+h1::before { ---- The before makes something appears before the element. So in this case, an favicon will show up before every h1. same logic with after.
+  content: url(faviconeu.ico);
+} 
+*/
+::marker { /* this will change the markers in the lists */
+  color: red;
+  font-size: 25px;
+}
+selection { /* it makes the text change you click on it. */
+  color: red;
+  background: yellow;
+}
+input:focus { /* it makes the element became red evertime in focus (clicked) */
+  background-color: red;
+}
+a:link, a:visited {
+  background-color: #f44336;
+  color: white;
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: underline;
+  display: inline-block;/*create an space automatically, no need to use br. Also with inline-block you can personalize margin, padding, etc. inline only doesnt allow that*/
+}
+a:hover, a:active {
+  color: red;
+  font-size: 150% /* I put this on hover, so when we put the mouse on the link it will become bigger*/
+}
+a [target] { /* this makes all the A elements with Target inside it becomes yellow */
+  background-color: yellow;
+}
+a [target="_blankXXXX"] { /* this makes all the A elements with Targe=_blank inside it becomes yellow */
+  background-color: pink;
+}
+[title~="flower"] { /* this will make all the title with the name flower get a yellow border */
+  border: 5px solid yellow;
+}
+[class|="toptest"] { /* this makes all the classes with a top-something gets yellow. it HAS to be the word with an '-' after it */
+  background: yellow;
+}
+[class^="toptest"] { /* the element only have to start with that word, doesnt matter what comes next */
+  background: yellow;
+}
+[class$="testtest"] { /* this will only select elements that ends with a certain element */
+  background: yellow;
+}
+[class*="testest"] { /* this selects all the elements that has the word somewhare. doesnt matter if on the begning or the end */
+  background: yellow;
+}
+img {
+  position: abslute; /* z-index doesn't work with static images */
+  opacity: 0.8; /*goes between 0.0 - 1.0*/
+  left: 0px;
+  top: 0px;
+  float: left; /* it makes the element floats somewhere. Good to use with img + text --- we can also use "no float". It can also me use to create blocks with colors e.g. */
+  /* clear: left; -- if we want the next element to be below the one we're using --- we can also create .clearfix { overflow: auto; } if the text insite a margin/img it's getting outsit it's container */ 
+  z-index: -1; /* enable you to write something in the front of an image. z-index: 1 and the text became behind the image. The higher the number, the more it's going to overlap */
+}
+img:hover {
+  opacity: 1.0; /* this will make the img more powerfull when hober */
+}
+table {	border-spacing: 4px;}
+caption { caption-side: bottom;} /* if we want to use the caption on the border of the page instead of the top */
+tr:hover {background-color: rgba(222,111,55,0.5);}
+  th:nth-child(even),td:nth-child(even) { /* the Nth-child makes it looks zebra-striped (cor-sim cor-nao) */
+    /* max-width: 100%;  -- it's good to use max-width instead of width, because it will accomodate things even on smaller screens */
+    border: 1px solid black;
+    text-align: center;
+    background-color: rgba(255, 122, 0, 0.4);
+    border-radius: 10px;
+    border-collapse: collapse; /* this removes the double border */
+    border-style: dotted;
+    border-color: pink;
+    padding: 20px;
+    padding-top: 22px;
+    padding-left: 22px;
+    border-spacing: 900px;
+    vertical-align: middle /* middle it's the normal way. But you put top or botton if want it to look different */
+   /* border-bottom: 1px solid #ddd; -- This would make the table have only horizontal lines */
+}
+   
+
+ul {
+  list-style-type: none;
+  background: none;
+  border-left: 5px solid red;
+  display: inline-block;
+}
+  /*list-style-image: url('sqpurple.gif'); -- we can use images instead of symbols on lists 
+  list-style-position: outside; -- if we have a table and want to let the list symbols outside/inside the table it 
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333333; 
+
+} */
+li a { 
+  display: inline-block; 
+  /* display: none; -- this will HIDE the element 
+  visibility: hidden; -- this will also HIDE the element, BUT it will still use the space on the page where the element was positioned
+  position: relative; /* positions can be static (normal), relative, fixed, absolute or sticky. The relative one is relative to it's normal position, so we can use i.e. left to adjust it in the page */
+  /* position: fixed; -- if the position it's fixed, then it's not going to move even if you scroll */
+  /* position: absolute; -- it's an element inside another fixed one. If you want to post an image and write somewhere inside the image you can use absolute for that */
+  /* position: sticky; -- it's a mix between relative and fixed. It'll be realtive until it get's to the element, and then it becomes sticky */
+ /* left: 30px; /* we can use it along "position: reolative;" to adjust the position of the element in the page */ 
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+  
+.note {
+ 	font-size: 120%;
+ 	color: blue;
+}
+.main {
+  text-align: center;
+}
+
+.navbar {
+  top: 80px; /* to position it below .Header */
+  overflow: hidden;
+  position: absolute;
+  background-color: black;
+  width: 100%;
+  height: 60px;
+  border-radius: 28px / 14px; /*to make the border rounded. But if we use (0px / 0px) like in this case, the border will become eliptical */
+}
+
+.navbar a {
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 24px 26px;
+  width: auto;
+  text-decoration: none;
+}
+   
+.navbar a:hover {
+  background-color: blue;
+}
+
+@media screen and (max-width: 600px) { /* when you resize the page the navbar will adjust !-- didn't work that well here, soe it's something I should explorer -- */
+    h1, h2, h3, h4, h5, h6 {
+    font-size: 24px;
+    }
+    .navbar a {
+    border-box: 10px;
+    width: 50px;
+    height: 50px;
+   }
+}
+
+.dropbtn { /* the button of dropbox, how it looks */
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  height: 60px;
+  width: 120px;
+}
+
+.dropdown { /* the command of the dropbox, so we can make refference to it */
+  display: inline-block; /* to be align with the navbar*/
+}
+
+.dropdown-content { /* the content of the dropbox */
+  display: none;
+  position: fixed; /* The key to solve the position of it */
+  background-color: red;
+  width: 120px;/* width of the box */
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* shadow of the box for cool design */
+  z-index: 1; /* so the dropbox will be in front of images/things */
+  height: auto; /* so you can see everything inside dropbox */
+}
+
+.dropdown-content a { /* the links inside dropdown */
+  color: black;
+  padding: 6px 26px;
+  background-color: red;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover { /* when you hover the link  */
+  background-color: #f1f1f1;
+  width: 100%;
+} 
+
+.dropdown:hover .dropdown-content { /* when dropdown hover = dropdown content  */
+  display: block;
+}
+
+.dropdown:hover .dropbtn { /* when dropdown hover = button change color */
+  background-color: #3e8e41;
+}
+
+input[type="text"], select {
+  width: 50%;
+  padding: 10px;
+  margin: 6px 0;
+  display: block;
+  border: 1px solid black;
+  border-radius: 4px;
+  transition: width 0.4s ease-in-out; /* this makes the transition slowly */
+  background-image: url('https://www.iconpacks.net/icons/2/free-search-icon-2911-thumb.png'); /*the image would have to be an icon to show it good here */
+  background-position: -10px; 
+  background-repeat: no-repeat;
+}
+
+input[type="text"]:focus{
+  width: 100%;
+  background-color: white;
+}
+
+input[type=submit], input[type=reset]{
+  width: 10%;
+  background-color: #4CAF50;
+  color: black;
+  padding: 10px;
+  border: 8px solid-black;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover, input[type=reset]:hover {
+  background-color: green;
+}
+
+div.submitbutton {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+body {
+  counter-reset: section; /* this will create or reset a section */
+}
+
+h2::before {
+  counter-increment: section; /* will increment a counting value */
+  content: "Section " counter(section) ": "; /* makes the contente of it: Section + couting + : */
+}
+.header {
+  color: pink;
+  background-image: linear-gradient(to bottom right, black, red, yellow); /* With this we can control linear-gradient(direction, color-stop1, color-stop2,); --- also possible to use opacity with RGBA instead of the name of the colors -- you can also repeat lines, by using: repeating-linear-gradient*/
+  /*background-image: radial-gradient(red, yellow 10%, green 15%) */
+  /*background-color: currentcolor;  I'm using currentcolor to copy the color of the header. It's also possible to use INHERIT to use the configuration of a parent element, like:
+  div {border: 2px solid red;}
+  span {border: inherit;
+  }*/
+  border: 1px solid;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Create three unequal columns that floats next to each other */
+.column {
+  float: left;
+  padding: 10px;
+}
+
+/* Left and right column */
+.column.side {
+  width: 25%;
+}
+
+/* Middle column */
+.column.middle {
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.footer {
+  background-color: gray;
+  padding: calc(1px + 1px); /* we can use cacl to calculate some math expression with CSS */
+  margin: max(1px, 12px); /* we can use max to use the maximum number. -- we can also use MIN instead of MAX */
+  text-align: center;
+}
+
+#borderimg { 
+  border: 10px solid transparent;
+  padding: 15px;
+  border-image: url('https://www.w3schools.com/css/border.png') 30 round; /* instead of round it could be stretch, so the image would only be strechead arround it */
+}
+
+#borderimg2 { 
+  border: 10px solid transparent;
+  padding: 15px;
+  border-image: url('https://www.w3schools.com/css/border.png') 50 round; /* instead of round it could be stretch, so the image would only be strechead arround it */
+}
+
+#example1 {
+  background-image: url('https://www.w3schools.com/jsref/img_flwr.gif'), url('https://plus.unsplash.com/premium_photo-1675695700239-44153e6bf430?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cGFwZXIlMjB0ZXh0dXJlfGVufDB8fDB8fHww');
+  background-position: right bottom, left bottom;
+  background-repeat: no-repeat, repeat;
+  padding: 15px;
+  background-size: contain, cover; /* We can also use numbers or CONTAIN to make the img full on the space it has, or COVER to cover everything */
+  -webkit-box-reflect: below /* this will repeat the img, we can do it below, right, left or top*/ 0px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4)); /* this second part is repeating the img but with a cool effect like in the water */
+}
+
+.hero-image {
+  background: url('https://img.freepik.com/fotos-gratis/cara-barbudo-bonito-posando-contra-a-parede-branca_273609-20597.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1724457600&semt=ais_hybrid') no-repeat top; /*here I decided to use TOP instead of Center so the head of the person will show*/
+  background-size: cover;
+  height: 500px;
+  position: relative;
+}
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-shadow: 1px 1px white; /*also possible to add multiple shadows separeted by comma*/
+  font-size: 30px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /* nice shadow effect */
+}
+
+h1.hero-class, h3.hero-class {
+  color: black;
+  border-width: 4px;
+  border-color: black;
+  border-radius: 10px;
+  border-style: line;
+  margin: 10px;
+  height: 109px;
+  width: 400px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  transition: width 2s, height 2s, transform 2s; /* this is the duration of the transition because of the hover below, but I can also use transition-duration, transition-delay, transition-property, etc. I can make any transition I want */
+  transition-timing-function: ease-in-out; /*a lot of different types to amke the transition move, like linear, ease, ease-in, ease-out, etc. */
+}
+
+h1.hero-class:hover, h3.hero-class:hover {
+  width: 500px;
+  height: 115px;
+  transform: rotate(20deg); /* 2d trnasoform. The Transform element can make somethings, like: rotate, translate, scale(0, 0), etc. */
+  /*   transform: rotateZ(15deg); -- 3d transform. The only thing we can do here is rotateX, rotateY, rotateZ */
+}
+
+.button {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  margin: 4px 2px;
+  /*border-box: 75px; -- instead of use height/width + margin + padding, we can also use only border-box */
+  border-radius: 18px;
+  border: 2px solid white;
+  font-weight: bold;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.button:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+div.animationclass {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  position: relative; /* mandatory in this case, otherwise the box will not move */
+  animation-name: examplejoao;
+  animation-duration: 4s; /* mandatory */
+  animation-iteration-count: 2; /* # of times the animation will repeat -- we can also sue "infinite" */
+  /* animation-direction: reverse; ---- here we have a few options, like: normal, reverse, alternate, alternate-reverse */
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards; /* animation will retain the properties it have on it's final. Alo possible to use backwards, none and both */
+}
+
+@keyframes examplejoao {
+  0%   {background-color:red; left:0px; top:0px;} /* not necessary to use %, but we can if we want something more especifically */
+  25%  {background-color:yellow; left:200px; top:0px;}
+  50%  {background-color:blue; left:200px; top:200px;}
+  75%  {background-color:green; left:0px; top:200px;}
+  100% {background-color:red; left:0px; top:0px;}
+}
+
+/*CSS Text Effects
+ .example {
+  white-space: nowrap; -- This would make the text don't advance to a second line.
+  text-overflow: clip; -- This would make the text becomes ... in the final words, if the text is passing the margins.
+  overflow: hidden; -- This would make it hidden along with text-overflow: clip.
+  word-break: keep-all; -- This means that the text will only break in words with hiphen -
+  word-wrap: break-word; -- This makes even big words able to breake in 2 lines if necessary.
+  writing-mode: horizontal-tb; -- This would make the words horizontal, normal.
+  writing-mode: vertical-rl; -- This would make the words vertical, normal.
+}
+
+.example:hover {
+overflow: visible; -- so when I hover it, i will be able to see the whole text taht tex-overflow & overflow hidden before.
+} */
+
+.center {
+  text-align: center; /* the only purpose here is to center the pagination */
+}
+
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 5px;
+  background-color: transparent;
+  transition: background-color .2s; /* not necessary, but gives a sensation of delay */
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+
+/*.example-creating-columns {
+  column-count: 3; -- using this command is easy the create how many colums you want.
+  column-gap: 10px; -- distance betwen column
+  column-rule-style: solid; -- to create a bar taht separete the columns
+}
+  h2 {
+  column-span: all; -- this would specify that you could use a title that expand across all the columns
+}*/
+
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>This is a Heading</h1>
+</div>
+
+<br><br>
+<h1 style="font-size:6vw;">HERO IMAGE</h1>
+<div class="hero-image">
+  <div class="hero-text">
+    <h1 class="hero-class">I am John Doe</h1>
+    <h3 class="hero-class">And I'm a Photographer</h3>
+    <button class="button">Hire me</button>
+  </div>
+</div>
+
+<!--<h1 style="font-size:6vw;">NAVIGATION BAR</h1>-->
+<div class="navbar">
+  <a class="navbara" href="google.com">Home</a>
+  <a class="navbara" href="google.com">Other</a>
+  <a class="navbara" href="google.com">Contact</a>
+  <a class="navbara" href="google.com">About</a>
+  <div class="dropdown">
+    <button class="dropbtn">Dropdown</button>
+    <div class="dropdown-content">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+    </div>
+  </div>  
+</div>
+
+
+<h2 style="font-size:4vw;">Colums</h2>
+<div class="row">
+  <div class="column side">
+    <h3>Column</h3>
+    <div class="card">
+      <h2>About Me</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+      </div>
+  </div>
+  
+  <div class="column middle">
+    <h3>Column</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+  </div>
+  
+  <div class="column side">
+    <h3>Column</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+  </div>
+</div>
+
+<div class="center">
+  <div class="pagination">
+    <a href="#">&laquo;</a>
+    <a class="active" href="#">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">&raquo;</a>
+  </div>
+</div>
+
+<div class="footer">
+  <p>Footer</p>
+</div>
+
+<h1 style="font-size:6vw;">Animation</h1>
+<div class="animationclass"></div>
+
+<h1 style="font-size:6vw;">MULTIPLE IMAGES</h1>
+<div id="example1">
+  <h1>Lorem Ipsum Dolor</h1>
+  <span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</span>
+</div>
+
+<h1 style="font-size:6vw;">BORDER WITH IMAGE</h1>
+<p id="borderimg">border-image: url(https://www.w3schools.com/css/border.png) 30 round;</p>
+<p id="borderimg2">border-image: url(https://www.w3schools.com/css/border.png) 30 round;</p>
+
+
+<h2 style="font-size:4vw;">CSS</h2>
+<p>CSS Box Model</p>
+<img src="CSS_Box_model.html/images" alt="CSS box model" style="height:250px;width:250px;">
+<p>We can use the google sheets <!--<link rel="google-font-effects" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
+--> to add font effects, <span class="font-effect-neon">like this!</span></p>
+<!-- link to be albe to use Bootstrap icons, like: <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
+<p> logout icon:</p> <span class="material-symbols-outlined">logout
+</span>
+<p>LANG: it allows to make a specifically change in a segment, like this:</p> <!-- remember that I had to use the style on this HTML page to be able to show this example-->
+<p>Some text <q lang="no">A quote in a paragraph</q> Some text.</p>
+
+<h2 style="font-size:4vw;">TYPES OF CURSOR</h2>
+<p>Mouse over the words to change the cursor.</p>
+<span style="cursor:auto">auto</span><br>
+<span style="cursor:crosshair">crosshair</span><br>
+<span style="cursor:default">default</span><br>
+<span style="cursor:e-resize">e-resize</span><br>
+<span style="cursor:help">help</span><br>
+<span style="cursor:move">move</span><br>
+<span style="cursor:n-resize">n-resize</span><br>
+<span style="cursor:ne-resize">ne-resize</span><br>
+<span style="cursor:nw-resize">nw-resize</span><br>
+<span style="cursor:pointer">pointer</span><br>
+<span style="cursor:progress">progress</span><br>
+<span style="cursor:s-resize">s-resize</span><br>
+<span style="cursor:se-resize">se-resize</span><br>
+<span style="cursor:sw-resize">sw-resize</span><br>
+<span style="cursor:text">text</span><br>
+<span style="cursor:w-resize">w-resize</span><br>
+<span style="cursor:wait">wait</span><br>
+
+<br>
+<h2 style="font-size:4vw;">COLORS</h2>
+<p style="color:red;">This is a red paragraph.</p>
+<p style="background-color:yellow;">This is making the paragraph turn to yellow</p>
+<p style="border:1px solid tomato;">This is a paragraph with a board</p>
+<p style="background-color:rgba(255,150,0,0.5);">This is color with RGBA (A is the opacity)</p>
+<p style="background-color:#9a0000;">This is color with HEX (FF is the max, 00 min)</p>
+<p style="background-color:hsla(290,50%,50%,0.5);">This is color with HSLA (Really precise!)</p>
+<br>
+
+<h2 style="font-size:4vw;">FORMATS</h2>
+<p title="I'm a tooltip">This is a tooltip paragraph</p>
+<p style="font-family:courier;">This is making the text in another font</p>
+<p style="text-align:center;">This is changing the aligment (align) of the text</p>
+<br>
+
+<h2 style="font-size:4vw;">SIZE</h2>
+<p style="font-size:120%;">This is changing the font size</p>
+<p style="font-size:22px;">This is a big paragraph</p>
+<br>
+
+<h2 style="font-size:4vw;">FORMATING</h2>
+<p><strong>This is a Strong Text</strong></p>
+<p><i>This is a italic text</i></p>
+<p><em>This is an emphasized text</em></p>
+<p><small>This is an small text</small></p>
+<p><mark>This is a marked text</mark></p>
+<p><del>This is a deleted text</del></p>
+<p><ins>This is an inserted text</ins></p>
+<p>This is an <sub>subscripted</sub> text</p>
+<p>This is an <sup>superscripted</sup> text</p>
+
+<h2 style="font-size:4vw;">QUOTATIONS</h2>
+<p>Here's a quote from Wikipedia</p>
+<blockquote cite="https://pt.wikipedia.org/wiki/Wikip%C3%A9dia:P%C3%A1gina_principal">
+No futebol, Espanha conquista Campeonato Europeu ao derrotar Inglaterra e Argentina vence Copa América.
+</blockquote>
+<p>Here's a quote from wikipedia: <q>No futebol, Espanha conquista Campeonato Europeu ao derrotar Inglaterra e Argentina vence Copa América.</q> </p>
+<p>The <abbr title="ultimate fighting championship"> UFC </abbr> is a fighting event.
+<address>
+Written by João Medeiros.<br>
+Box 564, Disneyland<br>
+USA
+</address>
+<p><cite>The Title of something </cite> by João Medeiros </p>
+<bdo dir="rtl">This text will be written from right to left</bdo>
+<br>
+
+<h2 style="font-size:4vw;">LINKS</h2>
+<a href="https://www.youtube.com/">this is a link</a> <br>
+<a href="https://www.youtube.com/" target="_blank">this opens the link in another tab</a> <br>
+<a href="youtube.com/" target="_blank">this relative link, it can open another link inside the same website. No need to use www</a> <br>
+<a href="default.asp"> This is a image with a link inside it! <br>
+<img src="smiley.gif" alt="HTML tutorial" style="width:42px;height:42px;">
+</a>
+<br>
+<a href="mailto:joao.medeiros197@hotmail.com">this link makes you open your email to contact someone</a><br>
+<button onclick="document.location='default.asp'">With some JS code we can use a button with a link</button><br>
+<a href="https://www.w3schools.com/html/" title="Go to W3Schools HTML section">We can use Titles to specify where the link is going to take the person</a>
+<p id="test1">This link is a bookmark, after creating it, we can make a link into it</p>
+<a href="#test1">This is a link to the bookmark i created</a><br>
+<a href="test.html#test1">We can take the client to a bookmark in another page</a>
+<br> <br>
+
+<h2 style="font-size:4vw;">IMAGES</h2>
+<img src="https://www.w3schools.com/html/img_girl.jpg" alt="Girl in a jacket" style="width:42px;height:42px;" draggable="true">
+<p><img src="https://www.w3schools.com/html/img_girl.jpg" alt="Smiley face" style="float:right;width:42px;height:42px;">
+<!-- 
+I could use Width:100%, and so the image will be full doesnt matter the device you are using, it would always be full on the page
+Or we can use max-width:100%, and then the image will never be higher then it full size 
+-->
+The image will float to the right of the text.</p>
+<!-- With this we can link a certain part of the image with another website! -->
+<img src="https://www.cgk.com.br/wp-content/uploads/2020/07/8-scaled.jpg" title="internet space" alt="internet space" style="width:150px;height:150px;" usemap="#internet">
+<map name="internet">
+  <area shape="rect" coords="34,44,80,120" alt="this is a rect" href="https://jmvstream.com/pt-br/blog/segmentos/domine-a-arte-do-photoshop-aprenda-photoshop-com-a-hospedagem-de-video/" onclick="myFunction()">
+  <area shape="circle" coords="100,120,10" alt="this is a circle" href="https://jmvstream.com/pt-br/blog/segmentos/domine-a-arte-do-photoshop-aprenda-photoshop-com-a-hospedagem-de-video/" onclick="myFunction()">
+</map>
+<!-- We can also add an image in the background in a certain part of the page: -->
+<p style="background-image: url('https://s2.glbimg.com/3tfDrcp__l4U9-MnnZo8KuYfLG8=/e.glbimg.com/og/ed/f/original/2019/05/19/download.jpg');">
+<!-- 
+We can also add an image in the background of the whole page. same logic apllies, but on the head of the page, and mentioning the body instead of the paragraph
+Images should have different sizes if you are using a PC, Cellphone, tablet: 
+-->
+<picture>
+  <source media="(min-width: 650px)" srcset="https://files.tecnoblog.net/wp-content/uploads/2022/09/stable-diffusion-imagem.jpg">
+  <source media="(min-width: 465px)" srcset="https://www.pontotel.com.br/wp-content/uploads/2022/05/imagem-corporativa.jpg">
+  <img alt="This is an image" src="ihttps://marcusmarques.com.br/wp-content/uploads/2023/02/empresas-offshore.jpg">
+</picture>
+<br>
+
+<h2 style="font-size:4vw;">TABLES</h2>
+<div style="overflow-x: auto;"> <!-- THIS creates responsible table. I.g. it will display a horizontal scroll bar if the screen is to small to display the full content. -->
+  <table style="width:100%">
+  <caption>This caption will serve as info for the whole table</caption>
+  <colgroup>
+    <col span="2">
+      <!-- this is the empty colgroup, when we only want to paint colums in the middle. Its also possible to use "style="visibility: collapse" to hide colums -->
+      <col span="3" style="background-color: rgba(122,55,1,0.6)">        
+  </colgroup>
+    <tr>
+      <th style="width:300px;height:50px" colspan=2>Name</th>
+      <th>Genre</th>
+      <th>Degree</th>
+      <th>Age</th>
+    </tr>
+    <tr>
+      <th>Joao Victor</th>
+      <td> Medeiros Silveira</td>
+      <td>Male</td>
+      <td rowspan="2">Yes</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>Stefanie </th>
+      <td>Machado</td>
+      <td>Female</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>Stefanie </th>
+      <td>Machado</td>
+      <td>Female</td>
+      <td>yes</td>
+      <td>25</td>
+    </tr>
+  </table>
+</div>
+<br>
+
+<h2 style="font-size:4vw;">LISTS</h2>
+<ul style="list-style-type:square;">
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ul>
+
+<ol type="1">
+  <li>Coffee</li>
+  <li>Tea
+      <ol type="1">
+      <li>Black tea</li>
+      <li>Green tea</li>
+      <li>Milk</li>
+      </ol>
+  </li>
+</ol>
+
+<dl>
+  <dt>Coffee</dt>
+  <dd>- black hot drink</dd>
+  <dt>Milk</dt>
+  <dd>- white cold drink</dd>
+</dl>
+
+<div class="mycontainer">
+  <div style="background-color:#FFF4A3;">
+    <h2>London</h2>
+    <p>London is the capital city of England.</p>
+    <p>London has over 13 million inhabitants.</p>
+  </div>
+  
+  <div style="background-color:#FFC0C7;">
+    <h2>Oslo</h2>
+    <p>Oslo is the capital city of Norway.</p>
+    <p>Oslo has over 600.000 inhabitants.</p>
+  </div>
+  
+  <div style="background-color:#D9EEE1;">
+    <h2>Rome</h2>
+    <p>Rome is the capital city of Italy.</p>
+    <p>Rome has almost 3 million inhabitants.</p>
+  </div>
+</div>
+
+
+<h2 style="font-size:4vw;">CLASSES</h2>
+<!-- we can create a CLASS atribute using .nameoftheclass on CSS, and then applying <div class="nameoftheclass" to do that -->
+<div class="testclasses">
+	 <h2>London</h2>
+     <p>London is the <span class="note">capital</span> of England.</p>
+</div>
+
+<div class="testclasses">
+  <h2>Paris</h2>
+  <p>Paris is the <span class="note">capital</span> of France.</p>
+</div>
+
+<div class="testclasses main"> 
+<!-- here I'm usign 2 classes. Testclasses AND main -->
+  <h2>Tokyo</h2>
+  <p>Tokyo is the <span class="note">capital</span> of Japan.</p>
+</div>
+
+<h2 style="font-size:4vw;">ID</h2>
+<p> Instead of using the class, we can use an ID the same way, using # instead of dot (.) the only difference is that ID can only be used in 1 element inside the page</p>
+
+<h2 style="font-size:4vw;">IFRAME</h2>
+<iframe src="google.com" name="google" title="google link" height="200" width="400" style="border:2px solid red"></iframe>
+<p><a href="https://www.google.com" target="google">google.com</a></p>
+
+<h2 style="font-size:4vw;">PAGE STRUCTURE</h2>
+<p><img src="https://www.w3schools.com/html/img_sem_elements.gif" alt="page structure" style="width:180px;height:180px;"></p>
+<br>
+
+<h2 style="font-size:4vw;">RESPONSIVE TEXT</h2>
+<p style="font-size:4vw;">Resize the browser window to see how the text size scales.</p>
+<p style="font-size:2vw;">Use the "vw" (viewpoert) unit when sizing the text. 10vw will set the size to 10% of the viewport width.</p>
+
+<br>
+<h2 style="font-size:4vw;">COMPUTER CODE</h2>
+<code>
+x = 5;
+y = 6;
+z = x + y;
+</code>
+<p>We can use kbd to define a keybor output, like: "You can use <kbd>Ctrl+S</kbd> to save a document</p>
+<p>Or we can use samp, to show a message like in the computer style, like: <samp>File not found. Press F1 to continue</samp></p>
+<p>We can use var to detemine variables, like: The area of a triangle is: 1/2 x <var>b</var> x <var>h</var>, where <var>b</var> is the base, and <var>h</var> is the vertical height.</p>
+
+<h2 style="font-size:4vw;">ENTITIES</h2>
+<p>The signs Higher and Less are used as tags, so to we have to use some entities to solve that. Like &lt; (less then), and &gt; (grater than). Other example it's the non breaking space &nbsp; </p>
+<p>When it come to symbols, we can use somethings like:  &euro;  &real; in the text, not on the code </p>
+<p>And the same with emojis &#128517; </p>
+
+<h2 style="font-size:4vw;">FORMS</h2>
+<p>Text Fields</p>
+<form>
+  <input type="text" id="fname" name="fname" value="João"><br>
+  <label for="fname">First name</label><br>
+  <input type="text" id="lname" name="lname" value="Medeiros"><br>
+  <label for ="lname">Last name</label>
+</form>
+
+<p>Radio Button</p>
+<form>
+  <input type="radio" id="html" name="fav_language" value="HTML">
+  <label for="html">HTML</label><br>
+  <input type="radio" id="css" name="fav_language" value="CSS">
+  <label for="css">CSS</label><br>
+  <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+  <label for="javascript">JavaScript</label>
+</form> 
+
+<p>Checkboxes</p>
+<form>
+  <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+  <label for="vehicle1"> I have a bike</label><br>
+  <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+  <label for="vehicle2"> I have a car</label><br>
+  <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+  <label for="vehicle3"> I have a boat</label>
+</form>
+
+<p>Form with a submit button</p>
+<form action="/action_page.php" target="self" method="post" autocomplete="on">
+  <label for="fname2">First name:</label><br>
+  <input type="text" id="fname2" name="fname" value="John"><br>
+  <label for="lname2">Last name:</label><br>
+  <input type="text" id="lname2" name="lname" value="Doe"><br><br>
+  <input type="submit" value="Submit"> 
+</form>
+<!--
+The target determine where the page is going to open. The self means is going to open on the same page.
+The method means what we're doing. GET and POST is getting something from the client. NEVER use get in a senstive info, because the info you sent is going to be attached to the URL.
+POST it's more secure, because it doesnt get attached to the URL.
+AUTOCOMPLETE makes the browser remember past choices, and sometimes autocomplete a form automaticaly.
+This last line and the action on the right of FORM are making the button to work. 
+-->
+
+<p>Drop-down list</p>
+<form action="/action_page.php"><!--this is where you're going to send the "submit" informations-->
+  <label for="cars">Choose a Car</label>
+  <select id="cars" name="cars" size="3" multiple> <!--Size is how big the box is, and multiple allow to select multiple itens in the list-->
+    <option value="volvo">Volvo</option>
+    <option value="gol">Gol</option>
+    <option value="fiat" selected>Fiat</option>
+  </select>
+  <input type="submit">
+</form>
+
+<p>Text Area</p>
+<form action="/action_page.php">
+  <textarea name="message" rows="10" cols="60">The cat was playing in the garden.</textarea> <!--Also possible to use CSS here, like: style="width:200px; height:600px; -->
+  <br>
+  <input type="submit">
+</form>
+
+<p>The Button Element</p>
+<button type="button" onclick="alert('Hello World!')">Click Me!</button>
+
+<p>Grouping Form Data with Fieldset</p>
+<form action="/action_page.php">
+  <fieldset>
+    <legend>Name</legend>
+    <label for="fname">First Name</label>
+    <input type="text" id="fname4" name="fname" value="joão" readonly><!--readonly will make it not possible to change-->
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname4" name="lname" placeholder="medeiros">
+    <label for="country">Country</label>
+    <select id="country" name="country">
+      <option value="Brazil">Brazil</option>
+      <option value="USA">USA</option>
+    </select>
+    <input type="submit" value="Submit">
+    <input type="submit" formaction="/action_page2.php" value="Submit as Admin" formmethod="get" formtarget="_blank"><!--formaction overides the action atribute-->
+    <input type="reset" value="Reset"><!--we can use formmethod to redefine between get and post. formtarget can redefine the target-->
+  </fieldset>
+</form>
+
+<p>Datalist Element</p>
+<form action="/action_page.php">
+  <input list="browsers" name="browsers">
+  <datalist id="browsers">
+    <option value="Edge">
+    <option value="Firefox">
+    <option value="Chrome">
+  </datalist>
+  <input type="submit" value="Submit">
+  <input type="reset" value="Reset">
+</form>
+
+<p>The output Element</p>
+<form action="/action_page.php"
+oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+  0
+  <input type="range" id="a" name="a" value="0">
+  100 +
+  <input type="number" id="b" name="b" value="100">
+  =
+  <output name="x" for="a b"></output>
+  <br><br>
+  <input type="submit">
+</form>
+
+<p>Password & Email Element</p>
+<form>
+  <label for="email">Enter your email:</label><br>
+  <input type="email" id="email" name="email"><br>
+  <label for="pwd">Password</label><br>
+  <input type="password" id="pwd" name="pwd"><br>
+  <label for="myfile">Select a file:</label><br>
+  <input type="file" id="myfile" name="myfile" multiple><br><br><!--with multiple you can submit multiple things-->
+  <input type="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGBU-nShck7TfNdvQM6mMB_3z5aWUoS3a2rg&s" alt="Submit" width="48" height="48"><br><!--it's possible to include an image on the input comand-->
+</form>
+
+<p>Color Element</p>
+<form>
+  <label for="favcolor">Select your favorite color</label>
+  <input type="color" id="favcolor" name="favcolor">
+</form>
+
+<p>Date Element</p>
+<form>
+  <label for="birthday">Birthday</label>
+  <input type="date" id="birthday" name="birthday"><!--It's also possible to use "datetime-local" to include the time-->
+</form>
+
+<p>Number Field</p>
+<form>
+  <label for="quantity">Quantity (between 1 and 10):</label>
+  <input type="number" id="quantity" name="quantity" min="1" max="10">
+</form>
+
+<p>Range Field</p>
+<form action="/action_page.php" method="get">
+  <label for="vol">Volume (between 0 and 50):</label>
+  <input type="range" id="vol" name="vol" min="0" max="50" step="10"><!--step is making the number goes up/down 10 per time-->
+  <input type="submit" value="Submit">
+</form>
+
+<p>Search Field</p>
+<form action="/action_page.php">
+  <label for="gsearch">Search Google:</label>
+  <input type="search" id="gsearch" name="gsearch" placeholder="Write something here!"><!--The placeholder is used to write something to guide the user-->
+  <input type="submit" value="Submit">
+</form>
+
+<p>Telephone</p>
+<form>
+  <label for="phone">Enter your phone number:</label>
+  <input type="tel" id="phone" name="phone" placeholder="48-99112-9181" pattern="[0-9]{2}-[0-9]{5}-[0-9]{4}" maxlength="11" required><br><br>
+</form>
+
+<p>Time</p>
+<form action="/action_page.php">
+  <label for="appt">Select a time:</label>
+  <input type="time" id="appt" name="appt">
+  <input type="submit" value="Submit">
+</form>
+
+<p>URL</p>
+<form action="/action_page.php">
+  <label for="homepage">Add your homepage:</label>
+  <input type="url" id="homepage" name="homepage" size="50"><!--size can make it bigger or smalle-->
+  <input type="submit" value="Submit"><!--this means that when the page get loaded it will get down here to become the focus-->
+</form>
+
+<h2 style="font-size:4vw;">MULTIMIDIA</h2>
+<video width="320" height="240" controls><!--we can use "autoplay" to start the video automatically. We can use muted too. and Loop-->
+  <source src="www.youtube.com/watch?v=H7MqknRAfdM" type="video/mp4"><!--we can use loop=1 in the final of the video URL so it will be played inloop-->
+  Your browser does not support the video tag.
+</video><br><br>
+
+<p>Youtube Videos with Iframe</p>
+<iframe width="420" height="345" src="https://www.youtube.com/embed/H7MqknRAfdM" title="TROLLEI MINHA MÃE COM O TERMÔMETRO SUJO">
+</iframe><br><br><!--you can just click "incorporate" in a Youtube video and they will send the code automatically-->
+
+<audio controls>
+  <source src="horse.ogg" type="audio/ogg">
+  <source src="horse.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
+
+</body>
+</html>
